@@ -4,7 +4,6 @@ import App from './components/App.vue'
 import 'core-js/stable'
 import 'regenerator-runtime/runtime'
 
-import 'modern-css-reset'
 import './styles/index.css'
 
 export function createApp () {

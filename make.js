@@ -13,7 +13,7 @@ const templatePath = find.fileSync(/\.html$/, path.join(__dirname, '/dist'))[0]
 const serverBundlePath = find.fileSync(/server\..+\.json$/, path.join(__dirname, '/dist'))[0]
 const clientManifestPath = find.fileSync(/client\..+\.json$/, path.join(__dirname, '/dist'))[0]
 
-console.log(templatePath, serverBundlePath, clientManifestPath)
+// console.log(templatePath, serverBundlePath, clientManifestPath)
 
 const template = fs.readFileSync(templatePath, 'utf-8')
 const serverBundle = require(serverBundlePath)
@@ -25,11 +25,13 @@ const renderer = createBundleRenderer(serverBundle, {
   clientManifest
 })
 
+console.log(renderer)
+
 module.exports = (req, res) => {
   const context = { url: req.url }
   renderer.renderToString(context, (err, html) => {
     if (err) {
-      res.status(500).end('Server error')
+      res.status(500).end('Server Error')
       return
     }
     res.end(html)

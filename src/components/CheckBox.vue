@@ -12,12 +12,7 @@
       <div
         :class="$style.word"
       >
-        {{ text.split(' ')[0] }}
-      </div>
-      <div
-        :class="$style.word"
-      >
-        {{ text.split(' ')[1] }}
+        {{ text.split(' ')[0] }} {{ text.split(' ')[1] }}
       </div>
       <div
         :class="$style.word"
