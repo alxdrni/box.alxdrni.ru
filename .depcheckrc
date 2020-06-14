@@ -1,0 +1,12 @@
+ignores: [
+  "eslint",
+  "eslint-*",
+  "babel-eslint",
+  "postcss",
+  "postcss-*",
+  "stylelint",
+  "stylelint-*",
+  "stylelint-*",
+  "stylelint-*",
+  "vue-template-compiler"
+]

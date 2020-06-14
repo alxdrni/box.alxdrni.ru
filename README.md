@@ -1,1 +1,1 @@
-# box.alxdrni.ru
+# xoapp.alxdrni.ru
