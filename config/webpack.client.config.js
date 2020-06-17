@@ -17,7 +17,7 @@ module.exports = merge(baseConfig, {
     */
     // Плагин генерирует `vue-ssr-client-manifest.json` в output-каталоге
     new VueSSRClientPlugin({
-      filename: `client.${__dirname.split('/').pop()}.json`
+      filename: 'client.json'
     })
   ]
 })

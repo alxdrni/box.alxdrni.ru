@@ -12,11 +12,23 @@ const config = {
   mode: process.env.NODE_ENV,
   stats: 'errors-only',
   optimization: {
-    minimizer: isProd ? [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})] : []
+    minimize: isProd,
+    minimizer: isProd ? [
+      new TerserJSPlugin({
+        terserOptions: {
+          output: {
+            comments: false
+          }
+        },
+        extractComments: false
+      }),
+      new OptimizeCSSAssetsPlugin({})
+    ] : []
   },
+  entry: './src/index.js',
   output: {
     publicPath: '/',
-    filename: 'scripts.[hash].js'
+    filename: 'scripts.js'
   },
   module: {
     rules: [
@@ -42,7 +54,8 @@ const config = {
               modules: true
             }
           },
-          'postcss-loader'/*,
+          'postcss-loader'
+          /*,
           {
             loader: 'style-resources-loader',
             options: {
@@ -60,7 +73,7 @@ const config = {
           {
             loader: 'file-loader',
             options: {
-              name: 'assets/images/[name].[contenthash].[ext]'
+              name: 'assets/images/[name].[ext]'
             }
           }
         ]
@@ -71,7 +84,7 @@ const config = {
           {
             loader: 'file-loader',
             options: {
-              name: 'assets/fonts/[name].[contenthash].[ext]'
+              name: 'assets/fonts/[name].[ext]'
             }
           }
         ]
@@ -91,15 +104,7 @@ const config = {
   plugins: [
     new VueLoaderPlugin(),
     new MiniCssExtractPlugin({
-      filename: 'styles.[hash].css'
-    }),
-    new CopyPlugin({
-      patterns: [
-        {
-          from: path.resolve(__dirname, '../src/html', 'index.html'),
-          to: path.resolve(__dirname, '../dist', 'index.box.html')
-        }
-      ]
+      filename: 'styles.css'
     })
   ]
 }

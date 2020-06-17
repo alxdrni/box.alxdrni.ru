@@ -1,5 +1,7 @@
 @import "modern-css-reset";
 
-body {
-  font-family: 'Open Sans', sans-serif;
+*,
+*::before,
+*::after {
+  font-family: "Open Sans", sans-serif;
 }

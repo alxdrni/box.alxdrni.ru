@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "cross-env NODE_ENV=development webpack --mode development",
-    "build": "cross-env NODE_ENV=production webpack --progress --mode production --hide-modules"
+    "start": "rimraf dist && cross-env NODE_ENV=development webpack-dev-server --hot --mode development",
+    "build": "rimraf dist && cross-env NODE_ENV=production webpack -p --mode production",
+    "start:ssr": "rimraf dist && cross-env NODE_ENV=development webpack --config webpack.ssr.config.js --mode development",
+    "build:ssr": "rimraf dist && cross-env NODE_ENV=production webpack --config webpack.ssr.config.js --progress --mode production --hide-modules"
   },
   "author": "",
   "license": "ISC",
@@ -13,7 +15,6 @@
     "@babel/preset-env": "^7.9.6",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.1.0",
-    "copy-webpack-plugin": "^6.0.2",
     "core-js": "3",
     "cross-env": "^7.0.2",
     "css-loader": "^3.5.3",

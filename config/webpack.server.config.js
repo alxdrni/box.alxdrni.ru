@@ -36,7 +36,7 @@ module.exports = merge(baseConfig, {
   // `vue-ssr-server-bundle.json`
   plugins: [
     new VueSSRServerPlugin({
-      filename: `server.${__dirname.split('/').pop()}.json`
+      filename: 'server.json'
     })
   ]
 })
