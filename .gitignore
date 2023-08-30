@@ -1,7 +1,6 @@
 
 .cache/
 coverage/
-dist/
 !dist/index.html
 node_modules/
 *.log
@@ -12,5 +11,6 @@ node_modules/
 ._*
 .Spotlight-V100
 .Trashes
+.vscode
 ehthumbs.db
 Thumbs.db

@@ -27,7 +27,7 @@ const config = {
       ]
       : []
   },
-  entry: './src/index.js',
+  entry: './src/entry-client.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'scripts.js'
